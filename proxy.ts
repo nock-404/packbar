@@ -1,0 +1,17 @@
+import { NextResponse, type NextRequest } from 'next/server'
+import { headers } from 'next/headers'
+import { auth } from '@/lib/auth'
+
+export async function proxy(request: NextRequest) {
+	const session = await auth.api.getSession({ headers: await headers() })
+	if (!session) {
+		const url = new URL('/login', request.url)
+		url.searchParams.set('next', request.nextUrl.pathname)
+		return NextResponse.redirect(url)
+	}
+	return NextResponse.next()
+}
+
+export const config = {
+	matcher: ['/dashboard/:path*', '/lists/:path*'],
+}

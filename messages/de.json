@@ -1,0 +1,437 @@
+{
+	"common": {
+		"appName": "packbar",
+		"cancel": "Abbrechen",
+		"confirm": "Bestätigen",
+		"close": "Schließen"
+	},
+	"theme": {
+		"label": "Erscheinungsbild",
+		"system": "System",
+		"light": "Hell",
+		"dark": "Dunkel"
+	},
+	"uploads": {
+		"title": "Eigene Bilder",
+		"upload": "Hochladen",
+		"deleteLabel": "Bild löschen",
+		"deleteConfirm": {
+			"title": "Bild löschen",
+			"message": "Das Bild wird endgültig gelöscht. Ist es aktuell als Cover ausgewählt, wird das Cover zurückgesetzt.",
+			"confirm": "Löschen"
+		},
+		"errors": {
+			"invalidType": "Nur JPEG, PNG oder WebP erlaubt.",
+			"tooLarge": "Datei ist zu groß (max. 5 MB).",
+			"generic": "Hochladen fehlgeschlagen."
+		}
+	},
+	"layout": {
+		"userMenu": {
+			"label": "Benutzermenü",
+			"signOut": "Abmelden"
+		},
+		"footer": {
+			"claim": "Nie wieder was vergessen.",
+			"copyright": "© {year} packbar"
+		}
+	},
+	"auth": {
+		"heroClaim": "Nie wieder was vergessen.",
+		"passwordPolicy": {
+			"minLength": "Mindestens 10 Zeichen",
+			"hasLower": "Ein Kleinbuchstabe",
+			"hasUpper": "Ein Großbuchstabe",
+			"hasNumber": "Eine Zahl",
+			"repeat": "Passwort wiederholen",
+			"mismatch": "Passwörter stimmen nicht überein"
+		},
+		"login": {
+			"title": "Anmelden",
+			"description": "Melde dich an, um deine Packlisten zu sehen.",
+			"emailLabel": "E-Mail-Adresse",
+			"passwordLabel": "Passwort",
+			"submit": "Anmelden",
+			"forgotPassword": "Passwort vergessen?",
+			"registerLink": "Registrieren",
+			"errorInvalidCredentials": "E-Mail-Adresse oder Passwort ist falsch.",
+			"errorUnverified": "Deine E-Mail-Adresse ist noch nicht bestätigt.",
+			"errorGeneric": "Anmeldung fehlgeschlagen. Bitte versuche es erneut.",
+			"resendVerification": "Bestätigungsmail erneut senden",
+			"resendSent": "Bestätigungsmail wurde erneut gesendet.",
+			"resendError": "Bestätigungsmail konnte nicht gesendet werden."
+		},
+		"register": {
+			"title": "Konto erstellen",
+			"description": "Leg ein Konto an, um Packlisten zu erstellen und zu teilen.",
+			"nameLabel": "Name",
+			"emailLabel": "E-Mail-Adresse",
+			"passwordLabel": "Passwort",
+			"passwordHint": "Mindestens 8 Zeichen",
+			"submit": "Konto erstellen",
+			"loginLink": "Schon ein Konto? Anmelden",
+			"errorPasswordTooShort": "Das Passwort muss mindestens 8 Zeichen lang sein.",
+			"errorUserExists": "Für diese E-Mail-Adresse existiert bereits ein Konto.",
+			"errorGeneric": "Registrierung fehlgeschlagen. Bitte versuche es erneut."
+		},
+		"verifyEmail": {
+			"title": "Bestätige deine E-Mail-Adresse",
+			"description": "Wir haben eine Bestätigungsmail an {email} gesendet. Bitte prüfe dein Postfach.",
+			"descriptionFallback": "Wir haben dir eine Bestätigungsmail gesendet. Bitte prüfe dein Postfach.",
+			"resend": "Bestätigungsmail erneut senden",
+			"resendSent": "Bestätigungsmail wurde erneut gesendet.",
+			"resendError": "Bestätigungsmail konnte nicht gesendet werden.",
+			"backToLogin": "Zurück zur Anmeldung"
+		},
+		"forgotPassword": {
+			"title": "Passwort vergessen",
+			"description": "Gib deine E-Mail-Adresse ein, wir senden dir einen Link zum Zurücksetzen.",
+			"emailLabel": "E-Mail-Adresse",
+			"submit": "Link senden",
+			"successText": "Falls ein Konto mit dieser E-Mail-Adresse existiert, haben wir einen Link zum Zurücksetzen gesendet.",
+			"backToLogin": "Zurück zur Anmeldung"
+		},
+		"resetPassword": {
+			"title": "Neues Passwort vergeben",
+			"description": "Vergib ein neues Passwort für dein Konto.",
+			"passwordLabel": "Neues Passwort",
+			"passwordConfirmLabel": "Passwort bestätigen",
+			"passwordHint": "Mindestens 8 Zeichen",
+			"submit": "Passwort speichern",
+			"success": "Dein Passwort wurde geändert.",
+			"loginLink": "Zur Anmeldung",
+			"errorMismatch": "Die Passwörter stimmen nicht überein.",
+			"errorTooShort": "Das Passwort muss mindestens 8 Zeichen lang sein.",
+			"errorMissingToken": "Der Link ist ungültig oder abgelaufen. Fordere einen neuen Link an.",
+			"errorGeneric": "Passwort konnte nicht geändert werden. Der Link ist möglicherweise abgelaufen.",
+			"requestNewLink": "Neuen Link anfordern"
+		}
+	},
+	"dashboard": {
+		"title": "Deine Listen",
+		"listCount": "{count} {count, plural, one {Liste} other {Listen}}",
+		"templatesTitle": "Vorlagen",
+		"templateItems": "{count} {count, plural, one {Eintrag} other {Einträge}}",
+		"today": "heute",
+		"daysUntil": "noch {count} {count, plural, one {Tag} other {Tage}}",
+		"setTripHint": "Ziel & Datum setzen",
+		"emptyListHint": "Noch leer - füg die ersten Einträge hinzu.",
+		"nothingPackedHint": "Noch nichts gepackt - {count} {count, plural, one {Eintrag wartet} other {Einträge warten}}.",
+		"empty": {
+			"title": "Noch keine Listen",
+			"description": "Leg deine erste Packliste an oder starte mit der Standard-Vorlage."
+		},
+		"hero": {
+			"eyebrow": "Nächste Reise",
+			"departureIn": "Abflug in",
+			"days": "{count, plural, one {Tag} other {Tagen}}",
+			"today": "Heute",
+			"packedOf": "{packed} von {total} gepackt",
+			"continuePacking": "Weiterpacken",
+			"startPacking": "Packen starten",
+			"addItems": "Einträge hinzufügen"
+		},
+		"menu": {
+			"label": "Aktionen",
+			"rename": "Umbenennen",
+			"duplicate": "Duplizieren",
+			"delete": "Löschen",
+			"duplicateName": "{name} (Kopie)"
+		},
+		"deleteConfirm": {
+			"title": "Liste löschen",
+			"message": "Die Liste \"{name}\" wird unwiderruflich mit allen Kategorien und Einträgen gelöscht.",
+			"confirm": "Löschen"
+		},
+		"deleteTemplateConfirm": {
+			"title": "Vorlage löschen",
+			"message": "Die Vorlage \"{name}\" wird unwiderruflich gelöscht.",
+			"confirm": "Löschen"
+		},
+		"rename": {
+			"title": "Liste umbenennen",
+			"nameLabel": "Name",
+			"save": "Speichern"
+		},
+		"createDialog": {
+			"trigger": "Neue Liste",
+			"title": "Neue Liste anlegen",
+			"nameLabel": "Name",
+			"rangeLabel": "Reisezeitraum",
+			"rangeOptional": "(optional)",
+			"rangeFrom": "Von",
+			"rangeTo": "Bis",
+			"suggestHint": "Mengen für {count} {count, plural, one {Nacht} other {Nächte}} werden vorgeschlagen.",
+			"sourceLabel": "Woher soll der Inhalt kommen?",
+			"sourceEmptyTitle": "Leer",
+			"sourceEmptyDescription": "Starte mit einer leeren Liste.",
+			"sourceDefaultTitle": "Standard-Vorlage",
+			"sourceDefaultDescription": "Mit der Standard-Packliste starten.",
+			"sourceTemplateTitle": "Eigene Vorlage",
+			"sourceTemplateDescription": "Von einer eigenen Vorlage übernehmen.",
+			"sourceDuplicateTitle": "Liste duplizieren",
+			"sourceDuplicateDescription": "Eine vorhandene Liste kopieren.",
+			"presetsLabel": "Vorschlag wählen",
+			"categoriesLabel": "Kategorien",
+			"presets": {
+				"strand": "Strandurlaub",
+				"roadtrip": "Roadtrip",
+				"camping": "Camping",
+				"staedtetrip": "Städtetrip",
+				"winter": "Winterurlaub",
+				"kinder": "Mit Kindern",
+				"haustier": "Mit Haustier",
+				"alles": "Alles"
+			},
+			"templateSelectLabel": "Vorlage wählen",
+			"duplicateSelectLabel": "Liste wählen",
+			"submit": "Liste anlegen",
+			"errorMissingSelection": "Bitte eine Auswahl treffen.",
+			"errorGeneric": "Liste konnte nicht angelegt werden."
+		}
+	},
+	"list": {
+		"back": "Zurück zur Übersicht",
+		"listNameLabel": "Name der Liste",
+		"addCategory": "Kategorie hinzufügen",
+		"addItemPlaceholder": "Eintrag hinzufügen…",
+		"categoryNamePlaceholder": "Name der Kategorie",
+		"categoryNameLabel": "Name der Kategorie",
+		"itemNameLabel": "Name des Eintrags",
+		"lastMinute": "Last-Minute",
+		"empty": {
+			"title": "Noch keine Kategorien",
+			"description": "Leg deine erste Kategorie an, um Einträge zu sammeln.",
+			"addFirstCategory": "Erste Kategorie anlegen"
+		},
+		"categoryMenu": {
+			"label": "Kategorie-Aktionen",
+			"addSubcategory": "Unterkategorie hinzufügen",
+			"import": "Einträge einfügen",
+			"rename": "Umbenennen",
+			"delete": "Löschen"
+		},
+		"deleteCategoryConfirm": {
+			"title": "Kategorie löschen",
+			"message": "Die Kategorie \"{name}\" wird mit {count, plural, one {einem Eintrag} other {# Einträgen}} unwiderruflich gelöscht.",
+			"confirm": "Löschen"
+		},
+		"itemMenu": {
+			"label": "Eintrag-Aktionen",
+			"edit": "Details bearbeiten",
+			"delete": "Löschen"
+		},
+		"dnd": {
+			"itemHandle": "Eintrag verschieben",
+			"categoryHandle": "Kategorie verschieben"
+		},
+		"itemEditor": {
+			"title": "Eintrag bearbeiten",
+			"nameLabel": "Name",
+			"quantityLabel": "Menge",
+			"noteLabel": "Notiz",
+			"lastMinuteLabel": "Last-Minute",
+			"lastMinuteHint": "Erst am Abreisetag packen",
+			"personLabel": "Person",
+			"noPerson": "Niemand",
+			"managePersons": "Personen verwalten",
+			"managePersonsComingSoon": "Kommt in Kürze"
+		},
+		"actions": {
+			"filter": "Filter",
+			"share": "Teilen",
+			"print": "Drucken",
+			"settings": "Einstellungen",
+			"resetPacked": "Haken zurücksetzen",
+			"import": "Einträge einfügen",
+			"comingSoon": "Kommt in Kürze"
+		},
+		"filters": {
+			"hideDone": "Erledigte ausblenden",
+			"lastMinuteOnly": "Nur Last-Minute",
+			"reset": "Zurücksetzen",
+			"noResultsTitle": "Keine Treffer",
+			"noResultsDescription": "Kein Eintrag passt zu den aktiven Filtern."
+		},
+		"resetConfirm": {
+			"title": "Haken zurücksetzen",
+			"message": "Alle abgehakten Einträge dieser Liste werden wieder auf ungepackt gesetzt.",
+			"confirm": "Zurücksetzen"
+		},
+		"errors": {
+			"update": "Änderung konnte nicht gespeichert werden.",
+			"add": "Eintrag konnte nicht angelegt werden.",
+			"remove": "Eintrag konnte nicht gelöscht werden.",
+			"addCategory": "Kategorie konnte nicht angelegt werden.",
+			"addPerson": "Person konnte nicht angelegt werden."
+		},
+		"print": {
+			"footer": "erstellt mit packbar"
+		},
+		"settings": {
+			"title": "Einstellungen",
+			"generalTitle": "Allgemein",
+			"nameLabel": "Name",
+			"destinationLabel": "Ziel",
+			"rangeLabel": "Reisezeitraum",
+			"rangeFrom": "Von",
+			"rangeTo": "Bis",
+			"coverLabel": "Cover",
+			"personsTitle": "Personen",
+			"templateTitle": "Vorlage",
+			"saveAsTemplate": "Als Vorlage speichern",
+			"persons": {
+				"empty": "Noch keine Personen angelegt.",
+				"nameLabel": "Name der Person",
+				"delete": "Löschen",
+				"addPlaceholder": "Name hinzufügen…",
+				"add": "Hinzufügen",
+				"deleteConfirm": {
+					"title": "Person löschen",
+					"message": "\"{name}\" wird gelöscht, Zuordnungen zu Einträgen werden entfernt."
+				}
+			},
+			"template": {
+				"dialogTitle": "Als Vorlage speichern",
+				"nameLabel": "Name der Vorlage",
+				"save": "Speichern"
+			}
+		}
+	},
+	"share": {
+		"title": "Liste teilen",
+		"genericTitle": "Geteilte Packliste",
+		"modeLabel": "Freigabe",
+		"modes": {
+			"off": {
+				"title": "Aus",
+				"description": "Die Liste ist nicht geteilt."
+			},
+			"read": {
+				"title": "Nur ansehen",
+				"description": "Wer den Link hat, kann die Liste ansehen, aber nichts ändern."
+			},
+			"edit": {
+				"title": "Mitbearbeiten",
+				"description": "Wer den Link hat, kann Einträge abhaken, anlegen und löschen."
+			}
+		},
+		"copy": "Kopieren",
+		"copied": "Kopiert",
+		"rotate": "Link erneuern",
+		"rotateConfirm": {
+			"title": "Link erneuern",
+			"message": "Der bisherige Link wird ungültig, wer ihn hat verliert den Zugriff."
+		},
+		"badge": {
+			"edit": "Geteilte Liste",
+			"read": "Nur ansehen"
+		}
+	},
+	"manifest": {
+		"description": "Packlisten erstellen, teilen und abhaken"
+	},
+	"weather": {
+		"rainBadge": "Regen wahrscheinlich",
+		"rainHint": "Pack einen Regenschirm oder eine Regenjacke ein."
+	},
+	"emails": {
+		"verify": {
+			"subject": "Bestätige deine E-Mail-Adresse",
+			"heading": "Willkommen bei packbar",
+			"body": "Bitte bestätige deine E-Mail-Adresse, um dein Konto zu aktivieren.",
+			"cta": "E-Mail-Adresse bestätigen",
+			"text": "Bitte bestätige deine E-Mail-Adresse über diesen Link: {url}"
+		},
+		"reset": {
+			"subject": "Setze dein Passwort zurück",
+			"heading": "Passwort zurücksetzen",
+			"body": "Du hast angefordert, dein Passwort zurückzusetzen. Klicke auf den Button, um ein neues Passwort zu vergeben.",
+			"cta": "Passwort zurücksetzen",
+			"text": "Setze dein Passwort über diesen Link zurück: {url}"
+		},
+		"lastMinute": {
+			"subject": "Last-Minute-Erinnerung: {listName}",
+			"heading": "Deine Reise beginnt heute",
+			"body": "Für \"{listName}\" sind noch folgende Last-Minute-Dinge nicht abgehakt: {items}.",
+			"cta": "Liste öffnen",
+			"text": "Für \"{listName}\" sind noch folgende Last-Minute-Dinge nicht abgehakt: {items}."
+		}
+	},
+	"import": {
+		"title": "Einträge importieren",
+		"textareaLabel": "Liste einfügen",
+		"textareaPlaceholder": "3x T-Shirt\n- Sonnencreme\n[ ] Reisepass",
+		"categoryLabel": "Ziel-Kategorie",
+		"count": "{count} {count, plural, one {Eintrag erkannt} other {Einträge erkannt}}",
+		"submit": "Importieren",
+		"errorGeneric": "Import fehlgeschlagen. Bitte versuche es erneut."
+	},
+	"landing": {
+		"hero": {
+			"login": "Anmelden",
+			"claim": "Nie wieder was vergessen.",
+			"subline": "packbar ist die Packliste zum Abhaken: mit einer Vorlage aus 220 Einträgen, zum Teilen gemacht und am Ende sauber ausgedruckt.",
+			"ctaRegister": "Registrieren",
+			"ctaLogin": "Anmelden",
+			"toDashboard": "Zum Dashboard"
+		},
+		"demo": {
+			"eyebrow": "Zum Ausprobieren",
+			"title": "Abhaken fühlt sich gut an",
+			"text": "Jede Liste ist ein Boarding-Pass für deine Reise: Kategorien, Einträge, Fortschritt. Was im Koffer liegt, wird abgehakt, der Rest bleibt sichtbar.",
+			"hint": "Klick die Kästchen, die Karte ist echt.",
+			"card": {
+				"kicker": "Packliste",
+				"title": "Kroatien Roadtrip",
+				"code": "KRO",
+				"dates": "14.08. - 28.08.2026",
+				"daysBadge": "noch 22 Tage",
+				"section": "02 / Strand & Pool",
+				"lastMinute": "Last-Minute",
+				"items": {
+					"sunscreen": "Sonnencreme",
+					"swimsuit": "Badehose",
+					"towel": "Strandtuch",
+					"snorkel": "Schnorchelset",
+					"powerbank": "Powerbank"
+				}
+			}
+		},
+		"features": {
+			"eyebrow": "Was drin ist",
+			"title": "Alles für die Liste, nichts drumherum",
+			"template": {
+				"title": "Vorlage mit 220 Einträgen",
+				"text": "Starte nicht bei null: Die Standard-Vorlage deckt alles ab, von Reisepass bis Powerbank. Streichen geht schneller als erinnern.",
+				"meta": "220 Einträge · 26 Kategorien"
+			},
+			"share": {
+				"title": "Teilen & gemeinsam abhaken",
+				"text": "Ein Link genügt: Wer ihn bekommt, sieht die Liste und hakt mit ab, ganz ohne eigenes Konto.",
+				"meta": "Per Link · Lesen oder Mitpacken"
+			},
+			"presets": {
+				"title": "Presets für Reisetypen",
+				"text": "Strand, Städtetrip oder Berge: Leg Listen aus passenden Vorlagen an und bau dir eigene für die nächste Tour.",
+				"meta": "Strand · Stadt · Berge"
+			},
+			"print": {
+				"title": "Druckansicht",
+				"text": "Zum Schluss aufs Papier: Die Liste kommt sauber formatiert aus dem Drucker und reist als Zettel mit.",
+				"meta": "A4 · Schwarzweiß"
+			}
+		},
+		"covers": {
+			"eyebrow": "Für jede Reise",
+			"title": "Vom Roadtrip bis zum Winterurlaub",
+			"outro": "In zwei Minuten startklar",
+			"cta": "Registrieren"
+		},
+		"footer": {
+			"login": "Anmelden",
+			"register": "Registrieren",
+			"copyright": "© {year} packbar"
+		}
+	}
+}

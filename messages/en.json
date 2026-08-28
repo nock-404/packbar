@@ -1,0 +1,437 @@
+{
+	"common": {
+		"appName": "packbar",
+		"cancel": "Cancel",
+		"confirm": "Confirm",
+		"close": "Close"
+	},
+	"theme": {
+		"label": "Appearance",
+		"system": "System",
+		"light": "Light",
+		"dark": "Dark"
+	},
+	"uploads": {
+		"title": "Your images",
+		"upload": "Upload",
+		"deleteLabel": "Delete image",
+		"deleteConfirm": {
+			"title": "Delete image",
+			"message": "The image will be deleted permanently. If it is currently selected as the cover, the cover is reset.",
+			"confirm": "Delete"
+		},
+		"errors": {
+			"invalidType": "Only JPEG, PNG or WebP allowed.",
+			"tooLarge": "File is too large (max. 5 MB).",
+			"generic": "Upload failed."
+		}
+	},
+	"layout": {
+		"userMenu": {
+			"label": "User menu",
+			"signOut": "Sign out"
+		},
+		"footer": {
+			"claim": "Never forget a thing.",
+			"copyright": "© {year} packbar"
+		}
+	},
+	"auth": {
+		"heroClaim": "Never forget a thing.",
+		"passwordPolicy": {
+			"minLength": "At least 10 characters",
+			"hasLower": "One lowercase letter",
+			"hasUpper": "One uppercase letter",
+			"hasNumber": "One number",
+			"repeat": "Repeat password",
+			"mismatch": "Passwords do not match"
+		},
+		"login": {
+			"title": "Sign in",
+			"description": "Sign in to see your packing lists.",
+			"emailLabel": "Email address",
+			"passwordLabel": "Password",
+			"submit": "Sign in",
+			"forgotPassword": "Forgot password?",
+			"registerLink": "Register",
+			"errorInvalidCredentials": "Email address or password is wrong.",
+			"errorUnverified": "Your email address is not verified yet.",
+			"errorGeneric": "Sign in failed. Please try again.",
+			"resendVerification": "Resend verification email",
+			"resendSent": "Verification email has been resent.",
+			"resendError": "Could not send verification email."
+		},
+		"register": {
+			"title": "Create account",
+			"description": "Create an account to build and share packing lists.",
+			"nameLabel": "Name",
+			"emailLabel": "Email address",
+			"passwordLabel": "Password",
+			"passwordHint": "At least 8 characters",
+			"submit": "Create account",
+			"loginLink": "Already have an account? Sign in",
+			"errorPasswordTooShort": "The password must be at least 8 characters long.",
+			"errorUserExists": "An account with this email address already exists.",
+			"errorGeneric": "Registration failed. Please try again."
+		},
+		"verifyEmail": {
+			"title": "Confirm your email address",
+			"description": "We sent a verification email to {email}. Please check your inbox.",
+			"descriptionFallback": "We sent you a verification email. Please check your inbox.",
+			"resend": "Resend verification email",
+			"resendSent": "Verification email has been resent.",
+			"resendError": "Could not send verification email.",
+			"backToLogin": "Back to sign in"
+		},
+		"forgotPassword": {
+			"title": "Forgot password",
+			"description": "Enter your email address, we'll send you a link to reset it.",
+			"emailLabel": "Email address",
+			"submit": "Send link",
+			"successText": "If an account with this email address exists, we've sent a link to reset the password.",
+			"backToLogin": "Back to sign in"
+		},
+		"resetPassword": {
+			"title": "Set a new password",
+			"description": "Choose a new password for your account.",
+			"passwordLabel": "New password",
+			"passwordConfirmLabel": "Confirm password",
+			"passwordHint": "At least 8 characters",
+			"submit": "Save password",
+			"success": "Your password has been changed.",
+			"loginLink": "Go to sign in",
+			"errorMismatch": "The passwords do not match.",
+			"errorTooShort": "The password must be at least 8 characters long.",
+			"errorMissingToken": "The link is invalid or expired. Request a new link.",
+			"errorGeneric": "Could not change the password. The link may have expired.",
+			"requestNewLink": "Request new link"
+		}
+	},
+	"dashboard": {
+		"title": "Your lists",
+		"listCount": "{count} {count, plural, one {list} other {lists}}",
+		"templatesTitle": "Templates",
+		"templateItems": "{count} {count, plural, one {item} other {items}}",
+		"today": "today",
+		"daysUntil": "{count} {count, plural, one {day} other {days}} left",
+		"setTripHint": "Set destination & date",
+		"emptyListHint": "Still empty - add your first items.",
+		"nothingPackedHint": "Nothing packed yet - {count} {count, plural, one {item is waiting} other {items are waiting}}.",
+		"empty": {
+			"title": "No lists yet",
+			"description": "Create your first packing list or start from the default template."
+		},
+		"hero": {
+			"eyebrow": "Next trip",
+			"departureIn": "Departure in",
+			"days": "{count, plural, one {day} other {days}}",
+			"today": "Today",
+			"packedOf": "{packed} of {total} packed",
+			"continuePacking": "Keep packing",
+			"startPacking": "Start packing",
+			"addItems": "Add items"
+		},
+		"menu": {
+			"label": "Actions",
+			"rename": "Rename",
+			"duplicate": "Duplicate",
+			"delete": "Delete",
+			"duplicateName": "{name} (copy)"
+		},
+		"deleteConfirm": {
+			"title": "Delete list",
+			"message": "The list \"{name}\" will be permanently deleted along with all categories and items.",
+			"confirm": "Delete"
+		},
+		"deleteTemplateConfirm": {
+			"title": "Delete template",
+			"message": "The template \"{name}\" will be permanently deleted.",
+			"confirm": "Delete"
+		},
+		"rename": {
+			"title": "Rename list",
+			"nameLabel": "Name",
+			"save": "Save"
+		},
+		"createDialog": {
+			"trigger": "New list",
+			"title": "Create new list",
+			"nameLabel": "Name",
+			"rangeLabel": "Trip dates",
+			"rangeOptional": "(optional)",
+			"rangeFrom": "From",
+			"rangeTo": "To",
+			"suggestHint": "Quantities for {count} {count, plural, one {night} other {nights}} will be suggested.",
+			"sourceLabel": "Where should the content come from?",
+			"sourceEmptyTitle": "Empty",
+			"sourceEmptyDescription": "Start with an empty list.",
+			"sourceDefaultTitle": "Default template",
+			"sourceDefaultDescription": "Start with the default packing list.",
+			"sourceTemplateTitle": "Your template",
+			"sourceTemplateDescription": "Copy from one of your templates.",
+			"sourceDuplicateTitle": "Duplicate a list",
+			"sourceDuplicateDescription": "Copy an existing list.",
+			"presetsLabel": "Choose a preset",
+			"categoriesLabel": "Categories",
+			"presets": {
+				"strand": "Beach vacation",
+				"roadtrip": "Road trip",
+				"camping": "Camping",
+				"staedtetrip": "City trip",
+				"winter": "Winter vacation",
+				"kinder": "With kids",
+				"haustier": "With pet",
+				"alles": "Everything"
+			},
+			"templateSelectLabel": "Choose template",
+			"duplicateSelectLabel": "Choose list",
+			"submit": "Create list",
+			"errorMissingSelection": "Please make a selection.",
+			"errorGeneric": "Could not create the list."
+		}
+	},
+	"list": {
+		"back": "Back to overview",
+		"listNameLabel": "List name",
+		"addCategory": "Add category",
+		"addItemPlaceholder": "Add item…",
+		"categoryNamePlaceholder": "Category name",
+		"categoryNameLabel": "Category name",
+		"itemNameLabel": "Item name",
+		"lastMinute": "Last-minute",
+		"empty": {
+			"title": "No categories yet",
+			"description": "Create your first category to start collecting items.",
+			"addFirstCategory": "Create first category"
+		},
+		"categoryMenu": {
+			"label": "Category actions",
+			"addSubcategory": "Add subcategory",
+			"import": "Import entries",
+			"rename": "Rename",
+			"delete": "Delete"
+		},
+		"deleteCategoryConfirm": {
+			"title": "Delete category",
+			"message": "The category \"{name}\" will be permanently deleted along with {count, plural, one {one item} other {# items}}.",
+			"confirm": "Delete"
+		},
+		"itemMenu": {
+			"label": "Item actions",
+			"edit": "Edit details",
+			"delete": "Delete"
+		},
+		"dnd": {
+			"itemHandle": "Move item",
+			"categoryHandle": "Move category"
+		},
+		"itemEditor": {
+			"title": "Edit item",
+			"nameLabel": "Name",
+			"quantityLabel": "Quantity",
+			"noteLabel": "Note",
+			"lastMinuteLabel": "Last-minute",
+			"lastMinuteHint": "Pack on the day of departure",
+			"personLabel": "Person",
+			"noPerson": "Nobody",
+			"managePersons": "Manage people",
+			"managePersonsComingSoon": "Coming soon"
+		},
+		"actions": {
+			"filter": "Filter",
+			"share": "Share",
+			"print": "Print",
+			"settings": "Settings",
+			"resetPacked": "Reset checkmarks",
+			"import": "Import entries",
+			"comingSoon": "Coming soon"
+		},
+		"filters": {
+			"hideDone": "Hide done",
+			"lastMinuteOnly": "Last-minute only",
+			"reset": "Reset",
+			"noResultsTitle": "No matches",
+			"noResultsDescription": "No item matches the active filters."
+		},
+		"resetConfirm": {
+			"title": "Reset checkmarks",
+			"message": "All checked items in this list will be set back to unpacked.",
+			"confirm": "Reset"
+		},
+		"errors": {
+			"update": "Could not save the change.",
+			"add": "Could not create the item.",
+			"remove": "Could not delete the item.",
+			"addCategory": "Could not create the category.",
+			"addPerson": "Could not create the person."
+		},
+		"print": {
+			"footer": "made with packbar"
+		},
+		"settings": {
+			"title": "Settings",
+			"generalTitle": "General",
+			"nameLabel": "Name",
+			"destinationLabel": "Destination",
+			"rangeLabel": "Trip dates",
+			"rangeFrom": "From",
+			"rangeTo": "To",
+			"coverLabel": "Cover",
+			"personsTitle": "People",
+			"templateTitle": "Template",
+			"saveAsTemplate": "Save as template",
+			"persons": {
+				"empty": "No people added yet.",
+				"nameLabel": "Person name",
+				"delete": "Delete",
+				"addPlaceholder": "Add name…",
+				"add": "Add",
+				"deleteConfirm": {
+					"title": "Delete person",
+					"message": "\"{name}\" will be deleted, assignments on items will be removed."
+				}
+			},
+			"template": {
+				"dialogTitle": "Save as template",
+				"nameLabel": "Template name",
+				"save": "Save"
+			}
+		}
+	},
+	"share": {
+		"title": "Share list",
+		"genericTitle": "Shared packing list",
+		"modeLabel": "Sharing",
+		"modes": {
+			"off": {
+				"title": "Off",
+				"description": "The list is not shared."
+			},
+			"read": {
+				"title": "View only",
+				"description": "Whoever has the link can view the list, but not change anything."
+			},
+			"edit": {
+				"title": "Collaborate",
+				"description": "Whoever has the link can check off, add and delete items."
+			}
+		},
+		"copy": "Copy",
+		"copied": "Copied",
+		"rotate": "Renew link",
+		"rotateConfirm": {
+			"title": "Renew link",
+			"message": "The previous link becomes invalid, whoever has it loses access."
+		},
+		"badge": {
+			"edit": "Shared list",
+			"read": "View only"
+		}
+	},
+	"manifest": {
+		"description": "Create, share and check off packing lists"
+	},
+	"weather": {
+		"rainBadge": "Rain likely",
+		"rainHint": "Pack an umbrella or a rain jacket."
+	},
+	"emails": {
+		"verify": {
+			"subject": "Confirm your email address",
+			"heading": "Welcome to packbar",
+			"body": "Please confirm your email address to activate your account.",
+			"cta": "Confirm email address",
+			"text": "Please confirm your email address via this link: {url}"
+		},
+		"reset": {
+			"subject": "Reset your password",
+			"heading": "Reset password",
+			"body": "You requested to reset your password. Click the button to set a new password.",
+			"cta": "Reset password",
+			"text": "Reset your password via this link: {url}"
+		},
+		"lastMinute": {
+			"subject": "Last minute reminder: {listName}",
+			"heading": "Your trip starts today",
+			"body": "For \"{listName}\" these last minute items are still not checked off: {items}.",
+			"cta": "Open list",
+			"text": "For \"{listName}\" these last minute items are still not checked off: {items}."
+		}
+	},
+	"import": {
+		"title": "Import entries",
+		"textareaLabel": "Paste list",
+		"textareaPlaceholder": "3x T-shirt\n- Sunscreen\n[ ] Passport",
+		"categoryLabel": "Target category",
+		"count": "{count} {count, plural, one {entry detected} other {entries detected}}",
+		"submit": "Import",
+		"errorGeneric": "Import failed. Please try again."
+	},
+	"landing": {
+		"hero": {
+			"login": "Sign in",
+			"claim": "Never forget a thing.",
+			"subline": "packbar is the packing list you check off: with a 220-item template, made for sharing, printed cleanly at the end.",
+			"ctaRegister": "Register",
+			"ctaLogin": "Sign in",
+			"toDashboard": "To dashboard"
+		},
+		"demo": {
+			"eyebrow": "Try it",
+			"title": "Checking off feels good",
+			"text": "Every list is a boarding pass for your trip: categories, items, progress. What's in the suitcase gets checked off, the rest stays visible.",
+			"hint": "Click the boxes, this card is real.",
+			"card": {
+				"kicker": "Packing list",
+				"title": "Croatia Roadtrip",
+				"code": "CRO",
+				"dates": "Aug 14 - 28, 2026",
+				"daysBadge": "22 days left",
+				"section": "02 / Beach & Pool",
+				"lastMinute": "Last-minute",
+				"items": {
+					"sunscreen": "Sunscreen",
+					"swimsuit": "Swim trunks",
+					"towel": "Beach towel",
+					"snorkel": "Snorkel set",
+					"powerbank": "Power bank"
+				}
+			}
+		},
+		"features": {
+			"eyebrow": "What's inside",
+			"title": "Everything for the list, nothing around it",
+			"template": {
+				"title": "220-item template",
+				"text": "Don't start from zero: the default template covers everything from passport to power bank. Crossing off is faster than remembering.",
+				"meta": "220 items · 26 categories"
+			},
+			"share": {
+				"title": "Share & pack together",
+				"text": "One link is enough: whoever gets it sees the list and checks things off, no account needed.",
+				"meta": "By link · View or pack along"
+			},
+			"presets": {
+				"title": "Presets for trip types",
+				"text": "Beach, city break or mountains: start lists from fitting templates and build your own for the next trip.",
+				"meta": "Beach · City · Mountains"
+			},
+			"print": {
+				"title": "Print view",
+				"text": "Paper at the end: the list comes out of the printer cleanly formatted and travels along as a sheet.",
+				"meta": "A4 · Black & white"
+			}
+		},
+		"covers": {
+			"eyebrow": "For every trip",
+			"title": "From road trip to winter holiday",
+			"outro": "Ready in two minutes",
+			"cta": "Register"
+		},
+		"footer": {
+			"login": "Sign in",
+			"register": "Register",
+			"copyright": "© {year} packbar"
+		}
+	}
+}
