@@ -1,11 +1,14 @@
 <div align="center">
 
-# packbar
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/banner-dark.png">
+  <img alt="packbar — never forget a thing" src=".github/banner-light.png" width="100%">
+</picture>
 
-### Nie wieder was vergessen.
+### Never forget a thing.
 
-Die Packliste zum Abhaken: mit einer Vorlage aus **220 Einträgen**, zum Teilen
-gemacht und am Ende sauber ausgedruckt.
+The packing list you actually check off: a **220-item template**, built for
+sharing, printed cleanly at the end.
 
 `Next.js 16` · `React 19` · `Postgres` · `Drizzle` · `Better Auth` · `Tailwind 4`
 
@@ -13,61 +16,62 @@ gemacht und am Ende sauber ausgedruckt.
 
 ---
 
-## Warum noch eine Packliste
+## Why another packing list
 
-Weil die meisten entweder eine leere Notiz-App sind oder eine App, die dir
-sagen will, wie du zu reisen hast. packbar macht genau eine Sache: eine Liste,
-die man abhakt — und bringt dafür eine Vorlage mit, bei der Streichen schneller
-geht als Erinnern.
+Because most of them are either an empty notes app or an app that wants to tell
+you how to travel. packbar does exactly one thing: a list you tick off — and it
+brings a template where crossing things out is faster than remembering them.
 
-Jede Liste ist ein Boarding-Pass: Cover, Zielcode, Countdown, Fortschritt,
-Perforation. Was im Koffer liegt, wird durchgestrichen. Der Rest bleibt
-sichtbar.
+Every list is a boarding pass: cover, destination code, countdown, progress,
+perforation. What's in the suitcase gets struck through. The rest stays visible.
 
-## Was es kann
+## What it does
 
 | | |
 |---|---|
-| **Vorlage mit 220 Einträgen** | 26 Kategorien von Reisepass bis Powerbank, mit Unterkategorien |
-| **Presets** | Strand, Roadtrip, Camping, Städtetrip, Winter, Mit Kindern, Mit Haustier — oder alles |
-| **Mengen-Vorschläge** | Aus dem Reisezeitraum: 7 Nächte → 8× Unterwäsche, 5× T-Shirt, 2× Schlafanzug |
-| **Teilen per Link** | Nur ansehen oder mitbearbeiten. Wer den Link hat, hakt mit ab — ganz ohne eigenes Konto |
-| **Live-Sync** | Geteilte Listen gleichen sich ab, während zwei Leute gleichzeitig packen |
-| **Last-Minute** | Einträge, die erst am Abreisetag in den Koffer. Am Reisetag kommt eine Mail mit dem, was noch offen ist |
-| **Wetter am Ziel** | Ziel eintragen, packbar holt die Vorhersage und weist auf Regen hin |
-| **Import** | Liste aus WhatsApp oder Notizen reinkopieren — Bullets, Nummerierung, Checkboxen und `3x` werden erkannt |
-| **Personen** | Einträge Leuten zuordnen, danach filtern |
-| **Drag & Drop** | Einträge und Kategorien umsortieren, auch zwischen Kategorien |
-| **Druckansicht** | Zweispaltig, schwarzweiß, reist als Zettel mit |
-| **Eigene Cover** | 15 kuratierte Bilder, drei Verläufe — oder ein eigenes hochladen |
-| **PWA & Dark Mode** | Installierbar, offline-tauglich, hell und dunkel |
+| **220-item template** | 26 categories from passport to power bank, with subcategories |
+| **Presets** | Beach, road trip, camping, city break, winter, with kids, with pets — or everything |
+| **Quantity suggestions** | Derived from the trip dates: 7 nights → 8× underwear, 5× t-shirt, 2× pyjamas |
+| **Share by link** | View-only or collaborative. Whoever has the link ticks along — no account needed |
+| **Live sync** | Shared lists stay in step while two people pack at once |
+| **Last minute** | Items that only go in on departure day. On the trip date you get a mail with what's still open |
+| **Weather at the destination** | Enter a destination and packbar pulls the forecast and warns about rain |
+| **Import** | Paste a list from a chat or your notes — bullets, numbering, checkboxes and `3x` are all recognised |
+| **People** | Assign items to people and filter by them |
+| **Drag & drop** | Reorder items and categories, including across categories |
+| **Print view** | Two columns, black and white, travels along as a sheet of paper |
+| **Custom covers** | 15 curated photos, three gradients — or upload your own |
+| **PWA & dark mode** | Installable, offline-capable, light and dark |
 
-## Loslegen
+## Getting started
 
 ```bash
-docker compose up -d      # Postgres auf Port 5435
+docker compose up -d      # Postgres on port 5435
 pnpm install
 pnpm db:migrate
-pnpm seed                 # optional: Dev-Konto + Beispielliste
+pnpm seed                 # optional: dev account + example list
 pnpm dev                  # http://localhost:4100
 ```
 
-Umgebungsvariablen in `.env`, Vorlage in `.env.example`. Ohne `SMTP_HOST`
-landen Mails im Server-Log statt im Postfach — für lokale Entwicklung reicht
-das.
+Environment variables go in `.env`, template in `.env.example`. Without
+`SMTP_HOST` mails land in the server log instead of an inbox — good enough for
+local development.
 
-Mehr zu Aufbau, Tests und Deployment: **[DEVELOPMENT.md](DEVELOPMENT.md)**
+More on structure, tests and deployment: **[DEVELOPMENT.md](DEVELOPMENT.md)**
 
-## Gestaltung
+## Design
 
-Boarding-Pass als Leitbild: Perforation statt Trennlinie, Zielcode als
-Ticket-Stempel, Mono-Ziffern für alles Zählbare. Bricolage Grotesque für
-Überschriften, Instrument Sans für Text, Space Mono für Meta.
+Boarding pass as the guiding idea: perforation instead of a hairline,
+destination code as a ticket stamp, monospaced digits for anything countable.
+Bricolage Grotesque for headings, Instrument Sans for body, Space Mono for meta.
 
-Nirgends native Scrollbalken, nirgends ein `window.confirm`. Jeder UI-String
-läuft über `next-intl` — Deutsch und Englisch sind gepflegt.
+No native scrollbars anywhere, no `window.confirm`. Every UI string goes through
+`next-intl` — German and English are both maintained.
 
-## Lizenz
+> **Note on language:** the app ships German and English; source comments are in
+> German. The docs are English.
 
-MIT. Cover-Bilder von [Unsplash](https://unsplash.com), Fotografinnen und
-Fotografen in [`public/covers/ATTRIBUTION.md`](public/covers/ATTRIBUTION.md).
+## License
+
+MIT. Cover photos from [Unsplash](https://unsplash.com), photographers credited
+in [`public/covers/ATTRIBUTION.md`](public/covers/ATTRIBUTION.md).

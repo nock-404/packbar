@@ -1,116 +1,115 @@
-# Entwicklung
+# Development
 
-## Einrichten
+## Setup
 
 ```bash
-docker compose up -d      # Postgres auf Port 5435
+docker compose up -d      # Postgres on port 5435
 pnpm install
 pnpm db:migrate
 pnpm seed                 # optional
 pnpm dev                  # http://localhost:4100
 ```
 
-### Umgebungsvariablen
+### Environment variables
 
-`.env`, Vorlage in `.env.example`:
+`.env`, template in `.env.example`:
 
-| Variable | Bedeutung |
+| Variable | Meaning |
 |---|---|
-| `DATABASE_URL` | Postgres-Verbindung |
-| `BETTER_AUTH_SECRET` | Sitzungsschlüssel |
-| `BETTER_AUTH_URL` | Öffentliche Basis-URL, auch für Links in Mails |
-| `SMTP_HOST` `SMTP_PORT` `SMTP_USER` `SMTP_PASS` `SMTP_FROM` | Mailversand. Fehlt `SMTP_HOST`, landen Mails im Log |
-| `CRON_SECRET` | Schlüssel für die Last-Minute-Route |
-| `UPLOAD_DIR` | Ablage eigener Cover, Vorgabe `./data/uploads` |
+| `DATABASE_URL` | Postgres connection |
+| `BETTER_AUTH_SECRET` | Session secret |
+| `BETTER_AUTH_URL` | Public base URL, also used for links in emails |
+| `SMTP_HOST` `SMTP_PORT` `SMTP_USER` `SMTP_PASS` `SMTP_FROM` | Mail delivery. Without `SMTP_HOST`, mails go to the log |
+| `CRON_SECRET` | Key for the last-minute route |
+| `UPLOAD_DIR` | Where custom covers are stored, defaults to `./data/uploads` |
 
-Das Seed-Skript legt `dev@packbar.local` mit dem Passwort `packbar1234` an und
-eine Beispielliste. Ist die Liste schon da, tut es nichts.
+The seed script creates `dev@packbar.local` with the password `packbar1234` and
+one example list. If the list already exists it does nothing.
 
-### Befehle
+### Commands
 
 | | |
 |---|---|
-| `pnpm dev` | Entwicklungsserver auf Port 4100 |
+| `pnpm dev` | Development server on port 4100 |
 | `pnpm build` / `pnpm start` | Production |
-| `pnpm test` | Vitest — Unit und Komponenten |
-| `pnpm db:generate` | Migration aus dem Schema |
-| `pnpm db:migrate` | Migrationen anwenden |
+| `pnpm test` | Vitest — unit and component tests |
+| `pnpm db:generate` | Generate a migration from the schema |
+| `pnpm db:migrate` | Apply migrations |
 | `pnpm db:studio` | Drizzle Studio |
 | `pnpm lint` | ESLint |
 
-Die Tests unter `lib/dal/` und `lib/lastMinuteMail.test.ts` sprechen eine echte
-Datenbank an — Docker muss laufen.
+The tests under `lib/dal/` and `lib/lastMinuteMail.test.ts` talk to a real
+database — Docker has to be running.
 
-## Aufbau
+## Structure
 
 ```
-app/(app)          Dashboard und Listen-Detail, hinter Login
-app/(auth)         Registrieren, Anmelden, Verifizieren, Passwort
-app/share/[token]  Geteilte Liste, ohne Konto erreichbar
-app/api            Auth, Uploads, Wetter, Polling, Cron
-app/actions        Server Actions, prüfen die Ownership
-lib/dal            Datenzugriff — die einzige Stelle mit SQL
-lib/template.ts    Vorlage und Kopien in Datenbankzeilen übersetzen
-lib/default-template.ts  die 220 Einträge
-lib/presets.ts     welche Kategorien zu welchem Reisetyp gehören
-lib/suggestions.ts Mengen aus der Anzahl Nächte
-lib/import.ts      Text-Import: Bullets, Nummerierung, Checkboxen, Mengen
-components/lists   Listen-Detail: Reducer-Store, DnD, Filter, Teilen
+app/(app)          dashboard and list detail, behind login
+app/(auth)         register, sign in, verify, password reset
+app/share/[token]  shared list, reachable without an account
+app/api            auth, uploads, weather, polling, cron
+app/actions        server actions; they check ownership
+lib/dal            data access — the only place with SQL
+lib/template.ts    turn templates and copies into database rows
+lib/default-template.ts  the 220 items
+lib/presets.ts     which categories belong to which trip type
+lib/suggestions.ts quantities from the number of nights
+lib/import.ts      text import: bullets, numbering, checkboxes, quantities
+components/lists   list detail: reducer store, DnD, filters, sharing
 ```
 
-### Zustand im Listen-Detail
+### State in the list detail
 
-Ein optimistischer Reducer-Store. Jede Änderung landet sofort im State und geht
-parallel als Server Action raus; scheitert sie, wird der Server-Stand
-nachgeladen und eine Meldung eingeblendet.
+An optimistic reducer store. Every change lands in state immediately and goes
+out as a server action in parallel; if it fails, the server state is refetched
+and a message is shown.
 
-Geteilte Listen im Bearbeiten-Modus pollen alle fünf Sekunden — **außer**
-während eine eigene Mutation offen ist. Sonst würde eine veraltete Antwort die
-gerade getippte Änderung überschreiben. Das Polling pausiert außerdem, wenn der
-Tab nicht sichtbar ist.
+Shared lists in edit mode poll every five seconds — **except** while one of your
+own mutations is in flight. Otherwise a stale response would overwrite the
+change you just typed. Polling also pauses when the tab isn't visible.
 
-### Zugriffsschutz
+### Access control
 
-Drei Ebenen, keine ersetzt die andere:
+Three layers, none of which replaces another:
 
-1. `proxy.ts` leitet nicht angemeldete Zugriffe auf `/dashboard` und `/lists`
-   zum Login um.
-2. Jede Server Action holt die Session selbst (`requireUserId`).
-3. Jede DAL-Funktion prüft die Ownership (`assertListOwner`) — auch die über
-   einen Share-Token, dort zusätzlich gegen den Modus.
+1. `proxy.ts` redirects unauthenticated access to `/dashboard` and `/lists` to
+   the login page.
+2. Every server action fetches the session itself (`requireUserId`).
+3. Every DAL function checks ownership (`assertListOwner`) — including the ones
+   reached through a share token, which additionally check the share mode.
 
-Share-Tokens sind 24 Zufallsbytes als base64url. „Link erneuern" erzeugt einen
-neuen und macht den alten damit sofort ungültig.
+Share tokens are 24 random bytes as base64url. "Renew link" generates a new one,
+which invalidates the old one instantly.
 
 ### Uploads
 
-Eigene Cover werden mit `sharp` auf maximal 1600 px Breite gebracht und als
-WebP abgelegt, höchstens 5 MB und nur JPEG/PNG/WebP als Eingabe. Die Datei-Id
-ist eine UUID und wird beim Lesen gegen ein UUID-Muster geprüft — sonst wäre
-`../../etc/passwd` ein gültiger Dateiname. Beim Löschen wird das Cover aller
-Listen des Users zurückgesetzt, die es benutzt haben.
+Custom covers are resized to at most 1600 px wide with `sharp` and stored as
+WebP; 5 MB maximum, JPEG/PNG/WebP only as input. The file id is a UUID and is
+validated against a UUID pattern on read — otherwise `../../etc/passwd` would be
+a valid filename. Deleting one resets the cover on every list of that user that
+was using it.
 
-### Last-Minute-Mail
+### Last-minute mail
 
-`GET /api/cron/last-minute?key=<CRON_SECRET>` sucht Listen, deren Reisetag heute
-ist und für die noch keine Mail raus ist, und schickt dem Besitzer die offenen
-Last-Minute-Einträge. `lastMinuteMailSentAt` verhindert Doppelversand — die
-Route darf also mehrmals am Tag laufen.
+`GET /api/cron/last-minute?key=<CRON_SECRET>` looks for lists whose trip date is
+today and for which no mail has gone out yet, and sends the owner the open
+last-minute items. `lastMinuteMailSentAt` prevents duplicates — so the route is
+safe to run several times a day.
 
-## Regeln im Code
+## House rules in the code
 
-- **Nirgends native Scrollbalken** — alles Scrollbare über `overlayscrollbars`.
-- **Kein `window.alert`/`confirm`/`prompt`** — eigene Dialog-Komponenten.
-- **Kein hardcodeter UI-String** — alles über `next-intl`, `messages/de.json`
-  und `messages/en.json` mit identischen Keys.
-- **Icons nur aus `react-icons/tb`.**
-- Tabs, Breite 4. Keine px, wo rem geht.
+- **No native scrollbars anywhere** — everything scrollable uses `overlayscrollbars`.
+- **No `window.alert`/`confirm`/`prompt`** — the project's own dialog components.
+- **No hardcoded UI strings** — everything through `next-intl`, with
+  `messages/de.json` and `messages/en.json` holding identical keys.
+- **Icons only from `react-icons/tb`.**
+- Tabs, width 4. No px where rem works.
 
 ## Deployment
 
-Das mitgelieferte `Dockerfile` baut ein Image, das beim Start die Migrationen
-anwendet und dann auf Port 4100 startet. Es braucht eine erreichbare
-Postgres-Datenbank und die Umgebungsvariablen von oben.
+The included `Dockerfile` builds an image that applies migrations on start and
+then serves on port 4100. It needs a reachable Postgres database and the
+environment variables above.
 
-`UPLOAD_DIR` sollte auf ein persistentes Volume zeigen — sonst sind die
-hochgeladenen Cover nach jedem Deploy weg.
+Point `UPLOAD_DIR` at a persistent volume — otherwise uploaded covers are gone
+after every deploy.
